@@ -1,0 +1,93 @@
+*{
+    padding:0px;
+    margin:0px;
+    overflow: hidden;
+}
+body{
+    background-color: rgb(194, 194, 194);
+ }
+.canvas{
+ 
+    border:2px black solid;
+    position: absolute;
+    top:50%;
+    left:50%;
+    transform: translate(-50% , -50%); 
+}
+.header{
+    position: fixed;
+    width:100%;
+    text-align: center;
+}
+.footer{
+    position: fixed;
+    bottom: 0px;
+    width:100%;
+    text-align: center;
+}
+ 
+ 
+.navbar{
+    width:7%;
+    height: 100vh;
+      background:black;
+ }
+.nav1 .nav2{
+    background-color: red;
+    grid-template-columns: auto auto  ;
+    justify-content: space-around; 
+    align-items: center;
+}
+.nav2{
+    float: bottom;
+}
+.button{
+    width:100%;
+    height:50px;
+}
+.button img ,.thickness img{
+    width:100%;
+    height:100%;
+    opacity: .7;
+}
+.thickness{
+    width:100%;
+    height:50px;
+    background-color: black; 
+}
+ 
+.navbar2{
+    position: fixed;
+    right:0px;
+    top:0px;
+    width:7%;
+    height: 100vh;
+    padding-top: 10vh; 
+    background:grey;
+ }
+
+ .colors{
+    width:70%;
+    height:50px;
+    margin:15%;
+    background-color: red;
+ }
+  
+
+ .activeTool{
+     background-color: rgb(22, 52, 223);
+     border:3px blue solid;
+     box-shadow: 0 0 10px 10px blue;
+     
+ }
+ .activeThick{
+    background-color: rgb(27, 54, 211);
+    border:3px blue solid;
+     box-shadow: 0 0 10px 10px blue;
+}
+
+.activeColorbox{
+    background-color: rgb(56, 58, 58);
+    border:3px blue solid;
+     box-shadow: 0 0 10px 10px rgb(173, 173, 173);
+}
