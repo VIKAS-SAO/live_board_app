@@ -7,11 +7,11 @@
 </head>
 <body>
  
-    <div>
+    <div class="form">
         <form action="index1.html" method="GET">
-            <h1>enter room name</h1>
-            <input type="text" name="room">
-            <input type="submit" value="enter">
+            <h1>Enter Room Name</h1>
+            <input type="text" name="room"><br>
+            <input type="submit" value="enter" id="submit">
         </form>
     </div>
     
@@ -21,7 +21,44 @@
         padding:0px;
         margin:0px;
     }
+    body{
+        background-image: url("img/background.jpg");
+    }
+    .form{
+        height:30vh;
+        width:40vw;
+        border:2px black solid;
+        position: absolute;
+        top:50%;
+        left:50%;
+        transform: translate(-50% , -50%);
+        background-color: black;
+        color:white;
+        border-radius: 20px;
+        box-shadow: 0 0 20px 10px rgb(100, 99, 99);
 
+
+    }
+    form { 
+         text-align: center;
+         padding :25px 
+     }
+     input{
+         font-size: 20px;
+         margin-top: 25px;
+     }
+     #submit{
+         background-color: red;
+         border-radius: 10px;
+         color:white;
+         padding:5px;
+     }
+     #submit:hover{
+         box-shadow: 0 0 10px 10px red;
+         padding:8px;
+
+     }
+ 
 
     
     
