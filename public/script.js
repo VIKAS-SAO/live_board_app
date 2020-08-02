@@ -138,19 +138,21 @@ let MODE = -1;
 
 
    const socket=io()
-
-     
-
-
-
+ 
 
 const parameter = new URLSearchParams(window.location.search)
 let ROOM  = parameter.get('room');
 
+
 let mouseX = null;
 let mouseY = null;
 
+socket.emit('join', ROOM);
+socket.on('join' ,function(){
+    socket.emit('join', ROOM);
 
+})
+ 
  
 
  

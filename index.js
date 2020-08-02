@@ -23,68 +23,56 @@ app.use(express.static(publicdirectory))
  
 
  io.on('connection',onConnection )
-
+ let room; 
  function onConnection(socket){
- socket.on('drawPencil', function(data){
-      //socket.join(data.room)  do it later on
- 
-        io.emit('drawPencil' , data);
+
+   socket.on('join',function(ROOM){
+    room  = ROOM; 
+    socket.join(room) 
   
+   })
+
+
+  socket.on('drawPencil', function(data){ 
+        io.to(room).emit('drawPencil' , data); 
   }) 
-    socket.on('drawEraser', function(data){
-       //socket.join(data.room)  do it later on
-
-      io.emit('drawEraser' , data);
-
+    socket.on('drawEraser', function(data){ 
+      io.to(room).emit('drawEraser' , data); 
    }) 
 
    socket.on('drawLine', function(data){
-       //socket.join(data.room)  do it later on 
-       io.emit('drawLine' , data); 
+        io.to(room).emit('drawLine' , data); 
    }) 
    socket.on('drawBox', function(data){
-    //socket.join(data.room)  do it later on 
-    io.emit('drawBox' , data); 
+     io.to(room).emit('drawBox' , data); 
     }) 
     socket.on('drawCircle', function(data){
-      //socket.join(data.room)  do it later on 
-      io.emit('drawCircle' , data); 
+       io.to(room).emit('drawCircle' , data); 
       }) 
     
       socket.on('drawText', function(keywords){
-        //socket.join(data.room)  do it later on 
-        io.emit('drawText' , keywords); 
+         io.to(room).emit('drawText' , keywords); 
        }) 
-
-
+ 
 
        //// function for clearing the board
        socket.on('clearBoard', function( ){
-        //socket.join(data.room)  do it later on 
-        io.emit('clearBoard'    ); 
+         io.to(room).emit('clearBoard'    ); 
        }) 
+ 
+      // for copy the shapes to the real canvas
+      socket.on('copyToCanvas0', function( ){
+          io.to(room).emit('copyToCanvas0'  );
 
+      }) 
+      socket.on('disconnect', function( ){
+        io.to(room).emit('clearBoard'    ); 
+        io.emit('join'    ); 
+        socket.join(room) 
 
-
-
-
-
-
-
-
-
-// for copy the shapes to the real canvas
-    socket.on('copyToCanvas0', function( ){
-    //socket.join(data.room)  do it later on 
-        io.emit('copyToCanvas0'  );
 
     }) 
-
-
-
-
-
-
+ 
 
 }
     
